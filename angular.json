@@ -3,5 +3,39 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ng-pao-ui": {
+      "projectType": "library",
+      "root": "projects/ng-pao-ui",
+      "sourceRoot": "projects/ng-pao-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-pao-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-pao-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-pao-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-pao-ui/src/test.ts",
+            "tsConfig": "projects/ng-pao-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-pao-ui/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "38532325-89a8-4530-9bcb-27b79e287e6a"
   }
 }
